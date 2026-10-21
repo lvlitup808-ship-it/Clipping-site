@@ -1,0 +1,11 @@
+{
+  "name": "asu-mbda-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node asu-preview/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
