@@ -39,9 +39,9 @@ module.exports=async function handler(req,res){
  }
  if(req.method!=='GET')return res.status(405).send('Method not allowed');
  if(path!=='/'&&path!=='/api'&&path!=='/api/index')return res.status(404).send('Not found');
- const cookie=(req.headers.cookie||'').match(/(?:^|;\\s*)mbda_demo=([^;]+)/)?.[1]||'';
+ const cookie=(req.headers.cookie||'').match(/(?:^|;\s*)mbda_demo=([^;]+)/)?.[1]||'';
  const parts=cookie.split('.');
  const exp=parts[0],signature=parts[1];
- if(exp&&signature&&/^\\d+$/.test(exp)&&Number(exp)>Date.now()/1000&&equal(signature,hmac(exp,KEY)))return res.status(200).send(page);
+ if(exp&&signature&&/^\d+$/.test(exp)&&Number(exp)>Date.now()/1000&&equal(signature,hmac(exp,KEY)))return res.status(200).send(page);
  return res.status(200).send(login);
 };
